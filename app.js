@@ -3,7 +3,7 @@ const app = express();
 const UserRoute = require('./routes/user.routes');
 const CategoryRoute = require('./routes/category.routes');
 const MealRoute = require('./routes/meal.routes');
-// const OrderRoute = require('./routes/order.routes');
+const OrderRoute = require('./routes/order.routes');
 const db = require("./config/database");
 const path = require('path');
 const cors = require('cors');
@@ -22,7 +22,7 @@ app.use('/categorys', CategoryRoute);
 // // meal routes
 app.use('/meals', MealRoute);
 // // order routes
-// app.use('/orders', OrderRoute);
+app.use('/orders', OrderRoute);
 
 // main
 app.get('/', (req, res) => {
