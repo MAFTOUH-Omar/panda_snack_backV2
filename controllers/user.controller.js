@@ -7,7 +7,6 @@ const jwt = require("jsonwebtoken");
 const subscribe = async (req, res) => {
   try {
     const { fullName, role, email, password, phone } = req.body;
-    const picture = req.file ? req.file.filename : "" ; 
 
     if (!(email && password && fullName && role && phone)) {
       res.status(400).send("All input is required");
@@ -25,8 +24,7 @@ const subscribe = async (req, res) => {
       email: email.toLowerCase(),
       password: encryptedPassword,
       role: role,
-      phone: phone,
-      picture: `Picture/user_profile/${picture}`, // 
+      phone: phone
     });  
 
     const token = jwt.sign(

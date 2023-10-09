@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const UserRoute = require('./routes/user.routes');
-// const CategoryRoute = require('./routes/category.routes');
+const CategoryRoute = require('./routes/category.routes');
 // const MealRoute = require('./routes/meal.routes');
 // const OrderRoute = require('./routes/order.routes');
 const db = require("./config/database");
@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 // user routes
 app.use('/users', UserRoute);
 // category routes
-// app.use('/categorys', CategoryRoute);
+app.use('/categorys', CategoryRoute);
 // // meal routes
 // app.use('/meals', MealRoute);
 // // order routes
